@@ -43,7 +43,7 @@ export function PotatoCard() {
                 address: CONTRACT_ADDRESS,
                 abi: potatoABI,
                 functionName: 'getIngredients',
-            }) as [number, number, number, number, number];
+            }) as number[];
             setPotato(ingredients[0]);
             setSourcream(ingredients[1]);
             setCheese(ingredients[2]);
