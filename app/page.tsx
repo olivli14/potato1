@@ -1,9 +1,18 @@
-import Image from "next/image";
+"use client"
+
+import { PotatoCard } from '@/components/potato-card';
+import NavigationHeader from '@/components/nav-bar';
 
 export default function Home() {
+  
   return (
     <div>
-      hello
+      <div>
+        <NavigationHeader/>
+        <div>
+          <PotatoCard />
+        </div>
+      </div>
     </div>
   );
 }
