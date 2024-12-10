@@ -39,10 +39,12 @@ export function PotatoCard() {
 
     async function readPotato(){
         try {
+
+    
             const ingredients = await readContract(wagmiConfig, {
-                address: CONTRACT_ADDRESS,
-                abi: potatoABI,
-                functionName: 'getIngredients',
+                 address: CONTRACT_ADDRESS,
+                 abi: potatoABI,
+                 functionName: 'getIngredients',
             }) as number[];
             setPotato(ingredients[0]);
             setSourcream(ingredients[1]);
@@ -53,7 +55,7 @@ export function PotatoCard() {
             console.error("Error reading ingredients:", error);
         }
     };
-
+3
     async function buyPotato(potatoAmount: number, sourcreamAmount: number, cheeseAmount: number, baconAmount: number, chivesAmount: number) {
         await readPotato();
         writeContract({
@@ -86,13 +88,13 @@ export function PotatoCard() {
         console.log("Ingredients added successfully");
     }
 
-    async function submitPotatos(event: React.FormEvent<HTMLFormElement>) {
+    async function submitPotatoes(event: React.FormEvent<HTMLFormElement>) {
         event.preventDefault();
         const formData = new FormData(event.target as HTMLFormElement);
         const num = formData.get("num") as string;
         console.log("num: ", num);
-        const numPotatos = parseInt(num);
-        addIngredients(numPotatos, 0, 0, 0, 0);
+        const numPotatoes = parseInt(num);
+        addIngredients(numPotatoes, 0, 0, 0, 0);
     }
 
     async function submitSourcream(event: React.FormEvent<HTMLFormElement>) {
@@ -167,7 +169,7 @@ export function PotatoCard() {
               <Separator className="my-3" />
 
               {/* Form to add Potatoes */}
-              <form onSubmit={submitPotatos}>
+              <form onSubmit={submitPotatoes}>
                 <Input name="num" type="number" placeholder="Add Potatoes" required />
                 <Button type="submit">Add Potatoes</Button>
               </form>
